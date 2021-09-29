@@ -1,13 +1,20 @@
-interface WorkflowListProps{
+import Workflow from "../../models/Workflow";
+import WorkflowCard from "./WorkflowCard";
+
+interface WorkflowListProps {
+    workflows : Workflow[]
 }
 
 
-export default function WorkflowList(props : WorkflowListProps){
-    return(
+export default function WorkflowList(props: WorkflowListProps) {
+    return (
         <div>
-            <text>
+            <h1>
                 Seus Workflows
-            </text>
+            </h1>
+            {props.workflows.map(workflow => {
+                <WorkflowCard nomeWorkflow = {workflow.nome}/>
+            })}
         </div>
     )
 }
