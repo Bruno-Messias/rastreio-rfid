@@ -1,5 +1,5 @@
 import Workflow from "../../models/Workflow";
-import WorkflowList from "./WorkflowList";
+import {WorkflowList} from "./WorkflowList";
 
 interface DashboardProps{
     workflows : Workflow[]
