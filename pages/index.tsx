@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Dashboard from '../components/Dashboard/Dashboard'
+import Etapa from '../models/Etapa'
 import Workflow from '../models/Workflow'
 import styles from '../styles/Home.module.css'
 
@@ -15,8 +16,14 @@ export default function Home(){
     new Workflow("4", "Workflow 4"),
   ]
 
+  const etapas = [
+    new Etapa("1", "Expurgo", +13),
+    new Etapa("2", "Arsenal", +12),
+    new Etapa("3", "Preparo", +25),
+  ]
+
   return(
-    <Dashboard workflows = {workflows}/>
+    <Dashboard workflows = {workflows} etapas = {etapas}/>
   )
 
 }
