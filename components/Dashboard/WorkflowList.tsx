@@ -8,7 +8,7 @@ interface WorkflowListProps {
 
 export const WorkflowList = (props: WorkflowListProps) => {
     return (
-        <div>
+        <div className = "rounded-lg p-6 shadow-xl bg-white mt-28 w-1/3 mb-2 ml-2">
             <div>
                 <h1>
                     Seus

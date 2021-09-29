@@ -7,7 +7,7 @@ interface EtapasListProps {
 
 export default function EtapasList(props: EtapasListProps) {
     return (
-        <div className = "rounded-lg p-6 shadow-xl bg-white m-3">
+        <div className = "rounded-lg p-6 shadow-xl bg-white m-2">
             <h1 className="text-3xl ml-5">
                 Etapas
             </h1>
