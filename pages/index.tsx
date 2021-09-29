@@ -20,6 +20,7 @@ export default function Home(){
     new Etapa("1", "Expurgo", +13),
     new Etapa("2", "Arsenal", +12),
     new Etapa("3", "Preparo", +25),
+    new Etapa("4", "Teste", +26)
   ]
 
   return(

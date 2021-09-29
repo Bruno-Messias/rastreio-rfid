@@ -1,7 +1,7 @@
 export default function SearchBar(props: any) {
     return (
-        <div className="flex flex-wrap content-center items-center rounded-lg p-3 shadow-xl h-15">
-            <input className="text-input"
+        <div className="flex flex-wrap content-center items-center rounded-lg p-3 shadow-xl h-15 ">
+            <input className="text-input focus:ring-2 focus:ring-blue-600"
                 type="search"
                 placeholder="Pesquise um instrumental..."
             />

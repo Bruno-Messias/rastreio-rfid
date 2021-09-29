@@ -7,7 +7,7 @@ interface EtapasListProps{
 
 export default function EtapasList(props : EtapasListProps){
     return(
-        <div className = "flex items-stretch">
+        <div className = "flex flex-wrap items-stretch">
             {props.etapas.map(etapa => (
                 <EtapaCard nomeEtapa={etapa.nome} quantidadeDeItens = {etapa.quantidadeDeItens}/>
             ))}
