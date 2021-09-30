@@ -1,9 +1,15 @@
-import styles from '../styles/Menu.module.css'
 
 export default function Menuitem(props) {
     return (
-            <button className="bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 border-b-4 border-blue-dark hover:border-blue rounded">
+        <li className="px-2 py-3 hover:bg-gray-100 rounded-r-3xl">
+            <a className="flex justify-center items-center h-full w-full inline-block" href={props.href}>
+                <object data={props.icon} type="image/svg+xml" className="object-scale-down h-7 pointer-events-none"/>
+            </a>
+
+            <a className="flex items-center justify-center" href={props.href}>
                 {props.text}
-            </button>
+            </a>
+            
+        </li>
     )
 }
