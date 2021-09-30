@@ -11,6 +11,8 @@ import Workflow from '../models/Workflow'
 import styles from '../styles/Home.module.css'
 
 import MyContext from '../context/myContext'
+import Navbar from '../components/NavBar/Navbar'
+import Footer from '../components/Footer/Footer'
 
 
 export default function Home() {
@@ -39,10 +41,13 @@ export default function Home() {
   const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
 
   return (
-    <div className ="flex bg-blue-50 justify-around">
-      <Menu/>
-      <Dashboard workflows={workflows} etapas={etapas} processos={processos} />
+    <div>
+      <Navbar />
+      <div className="flex bg-blue-50 justify-around">
+        <Menu />
+        <Dashboard workflows={workflows} etapas={etapas} processos={processos} />
+      </div>
+      <Footer/>
     </div>
-
   )
 }

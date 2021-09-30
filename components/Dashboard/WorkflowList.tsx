@@ -12,7 +12,7 @@ export const WorkflowList = (props: WorkflowListProps) => {
     const [wfAtivo, setWfAtivo] = useState(props.workflows[0]);
 
     return (
-        <div className="rounded-lg p-1 pl-0 shadow-xl bg-white mt-28 mb-2 ml-2">
+        <div className="rounded-lg p-1 pl-0 shadow-xl bg-white mt-2 mb-2 ml-2">
             <div className="text-3xl ml-10 mt-10">
                 <h1>
                     Seus

@@ -49,9 +49,7 @@ export default function Dashboard(props: DashboardProps) {
           </div>
 
             <div className = "flex flex-col w-10/12">
-                <SearchBar />
                 <EtapasList etapas={props.etapas} />
-
                 <MyContext.Provider value={{imagemProcesso, setImagemProcesso, processoAtivo, setProcessoAtivo}}>
                 <ProcessosList processos = {props.processos}>
                     <InstrumentaisList instrumentais = {instrumentais}/>
