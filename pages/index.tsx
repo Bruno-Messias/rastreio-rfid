@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import Dashboard from '../components/Dashboard/Dashboard'
+import Menu from '../components/Menu/Menu'
 import Etapa from '../models/Etapa'
 import Instrumental from '../models/Instrumental'
 import Processo from '../models/Processo'
@@ -36,8 +37,12 @@ export default function Home() {
 
 
   const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
-  
+
   return (
-      <Dashboard workflows={workflows} etapas={etapas} processos={processos}/>
+    <div className ="flex bg-blue-50">
+      <Menu/>
+      <Dashboard workflows={workflows} etapas={etapas} processos={processos} />
+    </div>
+
   )
 }

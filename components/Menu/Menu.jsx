@@ -4,9 +4,9 @@ export default function Menu(props) {
     return (
 
         <aside
-            className="flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl">
+            className="mt-28 flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl">
     
-            <ul className="mt-12">
+            <ul className="">
                 <>
                     <Menuitem icon="./dashicon.svg" text="Dashboard" href="."/>
 
@@ -24,7 +24,7 @@ export default function Menu(props) {
             <div className="mt-auto h-16 flex items-center w-full">
                 {/* <!-- Action Section --> */}
                 <button
-                    className="h-16 w-10 mx-auto flex justify-center items-center
+                    className="h-16 mx-auto flex justify-center items-center
                     w-full focus:text-orange-500 hover:bg-red-200 rounded-r-3xl focus:outline-none">
                     <svg
                         className="h-5 w-5 text-red-700"
