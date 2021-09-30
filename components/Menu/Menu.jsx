@@ -4,7 +4,7 @@ export default function Menu(props) {
     return (
 
         <aside
-            className="mt-28 flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl">
+            className="mt-28 flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl mr-0">
     
             <ul className="">
                 <>

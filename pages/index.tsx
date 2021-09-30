@@ -39,7 +39,7 @@ export default function Home() {
   const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
 
   return (
-    <div className ="flex bg-blue-50">
+    <div className ="flex bg-blue-50 justify-around">
       <Menu/>
       <Dashboard workflows={workflows} etapas={etapas} processos={processos} />
     </div>

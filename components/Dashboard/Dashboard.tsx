@@ -43,7 +43,7 @@ export default function Dashboard(props: DashboardProps) {
       ]
 
     return (
-        <div className="flex justify-end bg-blue-50 min-h-screen">
+        <div className="flex justify-center bg-blue-50 min-h-screen">
             <WorkflowList workflows={props.workflows} />
             <div className = "flex flex-col w-10/12">
                 <SearchBar />
