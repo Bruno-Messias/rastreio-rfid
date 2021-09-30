@@ -5,7 +5,7 @@ export default class Instrumental {
     codigo: string
     lote: string
 
-    constructor(id: string, nome: string, imageUrl : string, codigo : string, lote : string) {
+    constructor(id: string, imageUrl : string, nome: string, codigo : string, lote : string) {
         this.id = id
         this.imageUrl = imageUrl
         this.nome = nome
