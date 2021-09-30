@@ -8,7 +8,7 @@ export default function EtapaCard(props: EtapaCardProps) {
         <button className={`
             bg-blue-600 pt-1 px-2 m-5 bg-gradient-to-b
             from-blue-400 to-blue-500 rounded-xl 
-            shadow-lg w-52
+            shadow-lg w-32
             transform hover:scale-110 motion-reduce:transform-none
         `}>
             <div className="flex justify-center">
