@@ -1,5 +1,8 @@
+import Processo from "../../models/Processo";
+
 interface ProcessosListProps {
     children: any
+    processos: Processo[]
 
 }
 
