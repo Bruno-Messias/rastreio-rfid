@@ -1,6 +1,7 @@
 import Etapa from "../../models/Etapa";
 import Workflow from "../../models/Workflow";
 import EtapasList from "./EtapasList";
+import InstrumentaisList from "./InstrumentaisList";
 import ProcessosList from "./ProcessosList";
 import SearchBar from "./SearchBar";
 import { WorkflowList } from "./WorkflowList";
@@ -18,7 +19,9 @@ export default function Dashboard(props: DashboardProps) {
             <div className = "flex flex-col w-10/12">
                 <SearchBar />
                 <EtapasList etapas={props.etapas} />
-                <ProcessosList/>
+                <ProcessosList>
+                    <InstrumentaisList/>
+                </ProcessosList>
             </div>
         </div>
     )
