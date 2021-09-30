@@ -8,11 +8,11 @@ interface InstrumentalCardProps {
 
 export default function InstrumentalCard(props: InstrumentalCardProps) {
     return (
-        <div className="p-2 w-64 h-82">
+        <div className="p-2 w-64 h-82 cursor-pointer">
             <div className="bg-white h-96 px-6 py-8 rounded-lg shadow-lg text-center">
-                <div className="mb-3">
+                <div className="mb-5">
                     <img
-                        className="w-36 h-36rounded-full"
+                        className="w-36 h-36 mx-auto rounded-full"
                         src={props.imageUrl}
                         alt=""
                     />

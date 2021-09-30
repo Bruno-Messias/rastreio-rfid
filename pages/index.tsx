@@ -11,7 +11,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home(){
 
-  const IMAGE_URL = "https://sc04.alicdn.com/kf/H59be5056d53041589300e36c76b6f828z.jpg"
+  const IMAGE_URL = "https://www.prolab.com.br/wp-content/uploads/2018/12/Instrumentos-Cirurgicos.jpg"
 
   const workflows = [
     new Workflow("1", "Workflow 1"),
