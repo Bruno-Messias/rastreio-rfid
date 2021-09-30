@@ -12,7 +12,7 @@ interface DashboardProps {
 
 export default function Dashboard(props: DashboardProps) {
     return (
-        <div className="flex items-stretch justify-between bg-blue-50">
+        <div className="flex items-stretch justify-between bg-blue-50 min-h-screen">
             <WorkflowList workflows={props.workflows} />
             <div>
                 <SearchBar />
