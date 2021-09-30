@@ -20,6 +20,8 @@ export default function Home() {
     new Workflow("2", "Workflow 2"),
     new Workflow("3", "Workflow 3"),
     new Workflow("4", "Workflow 4"),
+    new Workflow("3", "Workflow 5"),
+    new Workflow("4", "Workflow 6")
   ]
 
   const etapas = [

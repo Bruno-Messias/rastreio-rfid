@@ -5,22 +5,22 @@ export default function Menu(props) {
 
         <aside
             className="mt-28 flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl mr-0">
-    
+
             <ul className="">
                 <>
-                    <Menuitem icon="./dashicon.svg" text="Dashboard" href="."/>
+                    <Menuitem icon="./dashicon.svg" text="Dashboard" href="." />
 
-                    <Menuitem icon="./boardicon.svg" text="Cadastro" href="."/>
+                    <Menuitem icon="./boardicon.svg" text="Cadastro" href="." />
 
-                    <Menuitem icon="./dataicon.svg" text="Dados" href="."/>
+                    <Menuitem icon="./dataicon.svg" text="Dados" href="." />
 
-                    <Menuitem icon="./instricon.svg" text="Instrumentais" href="."/>
+                    <Menuitem icon="./instricon.svg" text="Instrumentais" href="." />
 
-                    <Menuitem icon="./equipicon.svg" text="Equipamentos" href="."/>
+                    <Menuitem icon="./equipicon.svg" text="Equipamentos" href="." />
                 </>
-    
+
             </ul>
-    
+
             <div className="mt-auto h-16 flex items-center w-full">
                 {/* <!-- Action Section --> */}
                 <button
@@ -41,10 +41,10 @@ export default function Menu(props) {
                         <polyline points="16 17 21 12 16 7"></polyline>
                         <line x1="21" y1="12" x2="9" y2="12"></line>
                     </svg>
-    
+
                 </button>
             </div>
-    
+
         </aside>
 
     )
