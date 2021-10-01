@@ -10,7 +10,7 @@ interface WorkflowListProps {
 }
 
 
-export const EtapaList = (props: WorkflowListProps) => {
+export default function EtapaList (props: WorkflowListProps){
 
     const [wfAtivo, setWfAtivo] = useState(props.workflows[0]);
     const [etapaAtiva, setEtapaAtiva] = useState(props.etapas[0]);
@@ -29,7 +29,7 @@ export const EtapaList = (props: WorkflowListProps) => {
 
             <div className="grid grid-cols-2 ml-0">
             {props.etapas.map(etapa => (
-                    <EtapaCard
+                    <EtapaCard key = {etapa.id}
                         nomeEtapa={etapa.nome} 
                         quantidadeDeItens={etapa.quantidadeDeItens} 
                         ativo = {etapaAtiva == etapa ? "true" : "false"} 

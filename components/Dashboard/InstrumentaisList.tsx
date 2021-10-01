@@ -7,7 +7,7 @@ interface InstrumentaisListProps {
 
 export default function InstrumentaisList(props: InstrumentaisListProps) {
     return (
-        <div className="rounded-lg p-4 bg-white m-2 flex-wrap h-full">
+        <div className="rounded-lg p-4 bg-white m-2 flex-wrap">
             <div className="flex flex-wrap justify-between">
                 {props.instrumentais.map(instrumental => (
                     <InstrumentalCard

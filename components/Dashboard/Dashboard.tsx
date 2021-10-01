@@ -5,7 +5,7 @@ import Workflow from "../../models/Workflow";
 import InstrumentaisList from "./InstrumentaisList";
 import ProcessosList from "./ProcessosList";
 import SearchBar from "./SearchBar";
-import { EtapaList } from "./EtapasList";
+import EtapaList from "./EtapasList";
 import MyContext from '../../context/myContext'
 import { useState } from "react";
 

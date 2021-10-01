@@ -9,11 +9,9 @@ import Instrumental from '../models/Instrumental'
 import Processo from '../models/Processo'
 import Workflow from '../models/Workflow'
 import styles from '../styles/Home.module.css'
-
 import MyContext from '../context/myContext'
 import Navbar from '../components/NavBar/Navbar'
 import Footer from '../components/Footer/Footer'
-
 
 export default function Home() {
 
@@ -36,6 +34,9 @@ export default function Home() {
     new Processo("2", "Lavagem Ultrassônica"),
     new Processo("3", "Termodesinfecção")
   ]
+
+
+  const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
 
   return (
     <div>

@@ -1,6 +1,4 @@
 import TagInstrumental from './TagInstrumental'
-
-
 interface InstrumentalCardProps {
     imageUrl: string
     nomeInstrumental: string
