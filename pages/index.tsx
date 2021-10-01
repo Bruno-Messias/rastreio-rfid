@@ -37,9 +37,6 @@ export default function Home() {
     new Processo("3", "Termodesinfecção")
   ]
 
-
-  const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
-
   return (
     <div>
       <Navbar />
