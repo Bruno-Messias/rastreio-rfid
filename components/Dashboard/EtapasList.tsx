@@ -17,7 +17,7 @@ export const EtapaList = (props: WorkflowListProps) => {
 
     return (
         <div className="rounded-lg p-5 mb-2 shadow-xl bg-white mt-2 ml-2">
-            <div className = "m-2">
+            <div className = "m-2 flex justify-center">
                 <WorkflowDrop workflows={props.workflows} />
             </div>
 

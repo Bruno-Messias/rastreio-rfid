@@ -19,5 +19,4 @@ export default function InstrumentaisList(props: InstrumentaisListProps) {
             </div>
         </div>
     )
-
 }
