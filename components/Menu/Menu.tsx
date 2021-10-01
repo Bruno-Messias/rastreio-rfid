@@ -1,28 +1,22 @@
+import { sendData } from 'next/dist/server/api-utils'
 import Menuitem from './Menuitem'
 
-export default function Menu(props) {
+
+export default function Menu(props: any) {
+
     return (
 
         <aside
             className="mt-2 flex flex-col items-center bg-white text-gray-700 shadow-xl h-full rounded-r-3xl mr-0">
 
             <ul className="">
-                <>
-                    <Menuitem icon="./dashicon.svg" text="Dashboard" href="." />
-
-                    <Menuitem icon="./boardicon.svg" text="Cadastro" href="." />
-
-                    <Menuitem icon="./dataicon.svg" text="Dados" href="." />
-
-                    <Menuitem icon="./instricon.svg" text="Instrumentais" href="." />
-
-                    <Menuitem icon="./equipicon.svg" text="Equipamentos" href="." />
-                </>
+            
+                    <Menuitem />
 
             </ul>
 
             <div className="mt-auto h-16 flex items-center w-full">
-                {/* <!-- Action Section --> */}
+
                 <button
                     className="h-16 mx-auto flex justify-center items-center
                     w-full focus:text-orange-500 hover:bg-red-200 rounded-r-3xl focus:outline-none">
