@@ -21,7 +21,7 @@ export default function ProcessosList(props: ProcessosListProps) {
         console.log(processoAtivo.nome)
     }
     return (
-        <div className="rounded-lg p-6 shadow-xl bg-white m-2">
+        <div className="rounded-lg p-6 shadow-xl bg-white m-2 h-full">
             <div className="bg-white">
                 <nav className="flex flex-col sm:flex-row">
                     {props.processos.map(processo => (

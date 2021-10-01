@@ -11,9 +11,9 @@ export default function EtapaCard(props: EtapaCardProps) {
     let style = ""
 
     if (props.ativo === "true") {
-        style = "bg-blue-600 text-white pt-1 px-2 m-5 bg-gradient-to-b from-blue-400 to-blue-500 rounded-xl shadow-lg w-32 transform hover:scale-110 motion-reduce:transform-none"
+        style = "bg-blue-600 text-white pt-1 px-2 m-5 bg-gradient-to-b h-32 from-blue-400 to-blue-500 rounded-xl w-32 shadow-lg transform hover:scale-110 motion-reduce:transform-none"
     } else {
-        style = "bg-white text-gray-600 pt-1 px-2 m-5 rounded-xl shadow-lg w-32 transform hover:scale-110 motion-reduce:transform-none"
+        style = "bg-white text-gray-600 pt-1 px-2 m-5 rounded-xl shadow-lg h-32 w-32 transform hover:scale-110 motion-reduce:transform-none"
     }
 
     return (
@@ -31,9 +31,9 @@ export default function EtapaCard(props: EtapaCardProps) {
                     </svg>
                 </div>
             </div>
-            <div className="p-4">
+            <div className="p-2">
                 <p className=" font-semibold text-center" >{props.nomeEtapa}</p>
-                <div className="mt-2">
+                <div className="mt-1">
                     <p className="text-center">{props.quantidadeDeItens} Itens </p>
                 </div>
             </div>
