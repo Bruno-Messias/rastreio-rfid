@@ -1,3 +1,4 @@
+import TagInstrumental from './TagInstrumental'
 interface InstrumentalCardProps {
     imageUrl: string
     nomeInstrumental: string
@@ -8,18 +9,28 @@ interface InstrumentalCardProps {
 
 export default function InstrumentalCard(props: InstrumentalCardProps) {
     return (
-        <div className="p-2 w-64 h-82 ">
-            <div className="bg-white h-72 px-6 py-8 rounded-lg shadow-2xl text-center cursor-pointer">
-                <div className="mb-5">
-                    <img
-                        className="w-24 h-24 mx-auto rounded-full"
-                        src={props.imageUrl}
-                        alt=""
-                    />
+        <div className="relative bg-white pt-6 px-6 rounded-3xl w-60 my-4 shadow-2xl h-52 cursor-pointer">
+            <div className=" text-white flex items-center absolute rounded-full py-0.5 px-0.5 shadow-xl bg-blue-400 left-4 -top-6">
+                <img
+                    className="w-16 h-16 mx-auto rounded-full"
+                    src={props.imageUrl}
+                    alt=""
+                />
+            </div>
+            <div className="mt-8 flex flex-col content-center justify-end h-32">
+                <div className=" h-full flex content-start">
+                <p className="text-md font-semibold my-2">{props.nomeInstrumental}</p>
                 </div>
-                <p className="text-md text-gray-700">{props.nomeInstrumental}</p>
-                <span className="text-blue-500 block mb-5">COD {props.codigo} - LOTE {props.lote}</span>
+                <div className="h-max flex flex-col content-end">
+                    <div className="border-t-2 border-green-300"></div>
+                    <div className="flex space-x-4 mt-2 justify-center content-center">
+                        <TagInstrumental tipo="cod" valor={props.codigo} cor="azul" />
+                        <TagInstrumental tipo="lote" valor={props.lote} cor="azul" />
+                    </div>
+                </div>
             </div>
         </div>
+
     )
 }
+
