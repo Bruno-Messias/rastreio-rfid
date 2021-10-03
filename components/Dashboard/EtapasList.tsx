@@ -8,8 +8,6 @@ interface WorkflowListProps {
     workflows: Workflow[]
     etapas: Etapa[]
 }
-
-
 export default function EtapaList (props: WorkflowListProps){
 
     const [wfAtivo, setWfAtivo] = useState(props.workflows[0]);
