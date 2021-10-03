@@ -9,7 +9,7 @@ interface InstrumentalCardProps {
 
 export default function InstrumentalCard(props: InstrumentalCardProps) {
     return (
-        <div className="relative bg-white pt-6 px-6 rounded-3xl w-60 my-4 shadow-2xl h-52 cursor-pointer">
+        <div className="relative bg-white pt-6 px-4 rounded-3xl w-60 my-4 shadow-2xl h-52 cursor-pointer">
             <div className=" text-white flex items-center absolute rounded-full py-0.5 px-0.5 shadow-xl bg-blue-400 left-4 -top-6">
                 <img
                     className="w-16 h-16 mx-auto rounded-full"
