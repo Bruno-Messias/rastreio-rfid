@@ -9,8 +9,8 @@ export default function Menuitem(props: any) {
             {/* Dashboard */}
 
             <li className={state == 0 ?
-                ("bg-blue-500 text-white p-2 shadow-md rounded-r-3xl ") :
-                ("bg-white text-gray-600 p-2 hover:bg-gray-100 rounded-r-3xl")}>
+                ("bg-blue-500 text-white p-2 shadow-md rounded-r-3xl mt-5 ") :
+                ("bg-white text-gray-600 p-2 hover:bg-gray-100 rounded-r-3xl mt-5")}>
 
                 <button onClick={() => setState(0)} className="flex justify-center items-center h-full w-full">
 
