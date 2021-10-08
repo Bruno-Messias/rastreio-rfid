@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Etapa from "../../models/Etapa";
 import Workflow from "../../models/Workflow";
-import WorkflowDrop from './WorkflowDrop';
 import EtapaCard from './EtapaCard';
 import MyContext from "../../context/myContext";
 
@@ -31,17 +30,14 @@ export default function EtapaList(props: WorkflowListProps) {
     }, []);
 
     function getEtapas(workflowID: string) {
-        console.log("entrou")
         fetch(`https://localhost:44349/api/Stages/GetByWorkflow/${workflowID}`)
             .then(res => res.json())
             .then(
                 (result) => {
                     setEtapas(result);
                     setEtapaAtiva(result[0]);
-                    console.log(workflowID)
                 }
             )
-
     }
 
     return (
