@@ -18,10 +18,6 @@ export default function ProcessosList(props: ProcessosListProps) {
         setProcessoAtivo((prevProcesso : Processo) => processo)
     }
 
-    useEffect(()=> {
-        console.log(processoAtivo)
-    });
-
     return (
         <div className="rounded-3xl p-6 shadow-xl bg-white m-2 h-full">
             <div className="bg-white">

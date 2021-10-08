@@ -47,7 +47,7 @@ export default function Dashboard(props: DashboardProps) {
 
   return (
     <div className="flex justify-center bg-blue-50 min-h-screen">
-      <EtapaList workflows={props.workflows} etapas={props.etapas} />
+      <EtapaList/>
       <div className="flex flex-col w-10/12">
         <MyContext.Provider value={{ imagemProcesso, setImagemProcesso, processoAtivo, setProcessoAtivo }}>
           <ProcessosList processos={props.processos}>

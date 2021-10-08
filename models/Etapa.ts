@@ -1,11 +1,13 @@
 export default class Etapa {
-    id: string
-    nome: string
-    quantidadeDeItens : number
+    stageID: number
+    stageWfId: number
+    stageDescription : string
+    quantidadeDeItens: number
 
-    constructor(id: string, nome: string, quantidadeDeItens : number) {
-        this.nome = nome
-        this.id = id
-        this.quantidadeDeItens = quantidadeDeItens
+    constructor(stageID: number, stageWfId: number, stageDescription : string) {
+        this.stageID = stageID
+        this.stageWfId = stageWfId
+        this.stageDescription = stageDescription
+        this.quantidadeDeItens = 10
     }
 }

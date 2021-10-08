@@ -1,9 +1,11 @@
 export default class Workflow {
-    id: string
-    nome: string
+    workflowID: number
+    wfHospitalId: string
+    workflowDescription: string
 
-    constructor(id: string, nome: string) {
-        this.nome = nome
-        this.id = id
+    constructor(workflowID: number, wfHospitalId: string, workflowDescription: string) {
+        this.workflowID = workflowID
+        this.wfHospitalId = wfHospitalId
+        this.workflowDescription = workflowDescription
     }
 }
