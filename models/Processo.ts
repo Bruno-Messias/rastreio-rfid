@@ -1,9 +1,11 @@
 export default class Processo {
-    id: string
-    nome: string
+    processId: number
+    processStageId: number
+    processName: string
 
-    constructor(id: string, nome: string) {
-        this.nome = nome
-        this.id = id
+    constructor(processId: number, processStageId: number, processName: string) {
+        this.processId = processId
+        this.processStageId = processStageId
+        this.processName = processName
     }
 }

@@ -7,30 +7,24 @@ import ProcessosList from "./ProcessosList";
 import SearchBar from "./SearchBar";
 import EtapaList from "./EtapasList";
 import MyContext from '../../context/myContext'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface DashboardProps {
-  workflows: Workflow[]
-  etapas: Etapa[]
   processos: Processo[]
 }
 
 
 export default function Dashboard(props: DashboardProps) {
 
-  const [processoAtivo, setProcessoAtivo] = useState(props.processos[0]);
-  const [imagemProcesso, setImagemProcesso] = useState("1");
+
+  const [etapaAtiva, setEtapaAtiva] = useState<Etapa>();
+  const [processAtivo, setProcessAtivo] = useState<Processo>();
+  const [processos, setProcessos] = useState<Processo[]>([]);
+  const [workflows, setWorkflows] = useState<Workflow[]>([]);
+  const [etapas, setEtapas] = useState<Etapa[]>([]);
 
 
   let IMAGE_URL = ""
-
-  if (imagemProcesso == "1") {
-    IMAGE_URL = "https://www.prolab.com.br/wp-content/uploads/2018/12/Instrumentos-Cirurgicos.jpg"
-  } else if (imagemProcesso == "2") {
-    IMAGE_URL = "https://fibracirurgica.vteximg.com.br/arquivos/ids/185144-1000-1000/Kit-Instrumental-Academico-Fibra-Cirurgica..jpg?v=636687127762600000"
-  } else {
-    IMAGE_URL = "https://manutencao.dimsolucoes.com.br/instrumentos/imagens/gravacao-instrumental-cirurgico.jpg"
-  }
 
   const instrumentais = [
     new Instrumental("1", IMAGE_URL, "JOGO DE APLICAÇÃO PARA ENXERTO ÓSSEO D=9MM.", "31156ON", "7897"),
@@ -45,16 +39,29 @@ export default function Dashboard(props: DashboardProps) {
     new Instrumental("1", IMAGE_URL, "RASPADOR KARL STORZ, NEGUS, TIPO CURETA, TAMANHO 3.", "3216JN", "7897"),
   ]
 
+  useEffect(() => {
+
+    fetch(`https://localhost:44349/api/Processes/GetByStage/${etapaAtiva?.stageId}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          //console.log(result)
+          setProcessos(result);
+          setProcessAtivo(result[0]);
+        }
+      )
+  }, [etapaAtiva]);
+
   return (
     <div className="flex justify-center bg-blue-50 min-h-screen">
-      <EtapaList/>
-      <div className="flex flex-col w-10/12">
-        <MyContext.Provider value={{ imagemProcesso, setImagemProcesso, processoAtivo, setProcessoAtivo }}>
-          <ProcessosList processos={props.processos}>
+      <MyContext.Provider value={{ etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos }}>
+        <EtapaList />
+        <div className="flex flex-col w-10/12">
+          <ProcessosList processos={processos}>
             <InstrumentaisList instrumentais={instrumentais} />
           </ProcessosList>
-        </MyContext.Provider>
-      </div>
+        </div>
+      </MyContext.Provider>
     </div>
   )
 }

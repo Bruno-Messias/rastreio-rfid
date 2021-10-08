@@ -11,22 +11,17 @@ interface ProcessosListProps {
 
 export default function ProcessosList(props: ProcessosListProps) {
 
-    const {imagemProcesso, setImagemProcesso, processoAtivo, setProcessoAtivo} = useContext(MyContext);
-
-    function alterarProcesso(processo : Processo, id:string){
-        setImagemProcesso(id)
-        setProcessoAtivo((prevProcesso : Processo) => processo)
-    }
+    const {etapaAtiva, processAtivo, setProcessAtivo, processos, setProcessos} = useContext(MyContext);
 
     return (
         <div className="rounded-3xl p-6 shadow-xl bg-white m-2 h-full">
             <div className="bg-white">
                 <nav className="flex flex-col sm:flex-row">
-                    {props.processos.map(processo => (
+                    {props.processos.map((processo) => (
                         <ProcessoTab 
-                            nomeProcesso={processo.nome}
-                            ativo = {processo == processoAtivo ? "true" : "false"} 
-                            onClick = {()=>alterarProcesso(processo, processo.id)}/>
+                            nomeProcesso={processo.processName}
+                            ativo = {processo == processAtivo ? "true" : "false"} 
+                            onClick = {()=>setProcessAtivo(processo)}/>
                     ))}
                 </nav>
                 <div>
