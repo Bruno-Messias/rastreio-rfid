@@ -19,6 +19,7 @@ export default function ProcessosList(props: ProcessosListProps) {
                 <nav className="flex flex-col sm:flex-row">
                     {props.processos.map((processo) => (
                         <ProcessoTab 
+                            key = {processo.processId}
                             nomeProcesso={processo.processName}
                             ativo = {processo == processAtivo ? "true" : "false"} 
                             onClick = {()=>setProcessAtivo(processo)}/>
@@ -30,5 +31,4 @@ export default function ProcessosList(props: ProcessosListProps) {
             </div>
         </div>
     )
-
 }

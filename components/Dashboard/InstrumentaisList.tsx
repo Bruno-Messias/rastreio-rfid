@@ -11,6 +11,7 @@ export default function InstrumentaisList(props: InstrumentaisListProps) {
             <div className="flex flex-wrap justify-evenly">
                 {props.instrumentais.map(instrumental => (
                     <InstrumentalCard
+                        key = {instrumental.id}
                         imageUrl={instrumental.imageUrl}
                         nomeInstrumental={instrumental.nome}
                         codigo={instrumental.codigo}

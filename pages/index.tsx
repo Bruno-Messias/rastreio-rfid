@@ -16,21 +16,14 @@ import Footer from '../components/Footer/Footer'
 export default function Home() {
 
 
-  const processos = [
-    new Processo("1", "Limpeza Manual"),
-    new Processo("2", "Lavagem Ultrassônica"),
-    new Processo("3", "Termodesinfecção")
-  ]
 
-
-  const [processoAtivo, setProcessoAtivo] = useState(processos[0]);
 
   return (
     <div>
       <Navbar />
       <div className="flex bg-blue-50 justify-around">
         <Menu />
-        <Dashboard processos={processos} />
+        <Dashboard/>
       </div>
       <Footer/>
     </div>

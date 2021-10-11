@@ -1,6 +1,5 @@
 interface EtapaCardProps {
     nomeEtapa: string
-    quantidadeDeItens: number
     ativo: string
     onClick: () => void
 }
@@ -34,7 +33,7 @@ export default function EtapaCard(props: EtapaCardProps) {
             <div className="p-2">
                 <p className=" font-semibold text-center" >{props.nomeEtapa}</p>
                 <div className="mt-1">
-                    <p className="text-center">{props.quantidadeDeItens} Itens </p>
+                    <p className="text-center">10 Itens </p>
                 </div>
             </div>
         </button>
