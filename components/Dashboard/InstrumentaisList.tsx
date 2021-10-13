@@ -8,14 +8,14 @@ interface InstrumentaisListProps {
 export default function InstrumentaisList(props: InstrumentaisListProps) {
     return (
         <div className="rounded-lg p-4 bg-white m-2 flex-wrap">
-            <div className="flex flex-wrap justify-evenly">
+            <div className="flex flex-wrap justify-start">
                 {props.instrumentais.map(instrumental => (
                     <InstrumentalCard
-                        key = {instrumental.InstrId}
-                        imageUrl={instrumental.InstrImageUrl}
-                        nomeInstrumental={instrumental.InstrName}
-                        codigo={instrumental.InstrCode}
-                        lote={instrumental.InstrBatch} />
+                        key = {instrumental.instrId}
+                        imageUrl={instrumental.instrImageUrl}
+                        nomeInstrumental={instrumental.instrName}
+                        codigo={instrumental.instrCode}
+                        lote={instrumental.instrBatch} />
                 ))}
             </div>
         </div>

@@ -21,7 +21,6 @@ export default function Dashboard(props: DashboardProps) {
   const [processos, setProcessos] = useState<Processo[]>([]);
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
   const [etapas, setEtapas] = useState<Etapa[]>([]);
-  const [trackings, setTrackings] = useState<Tracking[]>([]);
   const [instrumentals, setInstrumentals] = useState<Instrumental[]>([]);
 
   useEffect(() => {
@@ -43,11 +42,11 @@ export default function Dashboard(props: DashboardProps) {
   useEffect(() => {
     async function fetchApi() {
       if (processAtivo != undefined) {
-        await fetch(`https://localhost:44349/api/Trackings/GetByProcess/${processAtivo.processId}`)
+        await fetch(`https://localhost:44349/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
           .then(res => res.json())
           .then(
             (result) => {
-              setTrackings(result);
+              setInstrumentals(result);
             }
           )
       }
@@ -55,28 +54,11 @@ export default function Dashboard(props: DashboardProps) {
     fetchApi();
   }, [processAtivo])
 
-  useEffect(() => {
-    if (trackings != undefined) {
-      trackings.forEach(async tracking => {
-        await fetch(`https://localhost:44349/api/Instrumentals/${tracking.instrumentalID}`)
-        .then(res => res.json())
-        .then(
-          (result)=>{
-            const updatedInstrumentals = [...instrumentals];
-            updatedInstrumentals.push(result);
-            setInstrumentals(updatedInstrumentals);
-          }
-        )
-      })
-    };
-
-  }, [trackings])
-
   return (
-    <div className="flex justify-center bg-blue-50 min-h-screen">
-      <MyContext.Provider value={{ etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos }}>
+    <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
+      <MyContext.Provider value={{ etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos, instrumentals }}>
         <EtapaList />
-        <div className="flex flex-col w-10/12">
+        <div className="flex flex-col w-full">
           <ProcessosList processos={processos}>
             <InstrumentaisList instrumentais={instrumentals} />
           </ProcessosList>

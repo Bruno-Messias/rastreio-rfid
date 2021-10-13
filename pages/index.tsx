@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <div className="flex bg-blue-50 justify-around">
+      <div className="flex bg-blue-50">
         <Menu />
         <Dashboard/>
       </div>

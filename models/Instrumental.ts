@@ -1,21 +1,21 @@
 export default class Instrumental {
-    InstrId: number
-    InstrName:string
-    InstrCode: string
-    InstrSpeciality: string
-    InstrBatch: string
-    InstrRfidCode: string
-    InstrImageUrl: string
-    InstrAppUser: string
+    instrId: number
+    instrName:string
+    instrCode: string
+    instrSpeciality: string
+    instrBatch: string
+    instrRfidCode: string
+    instrImageUrl: string
+    instrAppUser: string
 
-    constructor(InstrId: number, InstrName : string, InstrCode: string, InstrSpeciality : string, InstrBatch : string, InstrRfidCode: string, InstrImageUrl: string, InstrAppUser: string) {
-        this.InstrId = InstrId
-        this.InstrName = InstrName
-        this.InstrCode = InstrCode
-        this.InstrSpeciality = InstrSpeciality
-        this.InstrBatch = InstrBatch
-        this.InstrRfidCode = InstrRfidCode
-        this.InstrImageUrl = InstrImageUrl
-        this.InstrAppUser = InstrAppUser
+    constructor(instrId: number, instrName : string, instrCode: string, instrSpeciality : string, instrBatch : string, instrRfidCode: string, instrImageUrl: string, instrAppUser: string) {
+        this.instrId = instrId
+        this.instrName = instrName
+        this.instrCode = instrCode
+        this.instrSpeciality = instrSpeciality
+        this.instrBatch = instrBatch
+        this.instrRfidCode = instrRfidCode
+        this.instrImageUrl = instrImageUrl
+        this.instrAppUser = instrAppUser
     }
 }
