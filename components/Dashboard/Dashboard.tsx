@@ -14,7 +14,6 @@ import Tracking from "../../models/Tracking";
 interface DashboardProps {
 }
 
-
 export default function Dashboard(props: DashboardProps) {
 
   const [etapaAtiva, setEtapaAtiva] = useState<Etapa>();
@@ -63,7 +62,7 @@ export default function Dashboard(props: DashboardProps) {
       .withUrl("http://localhost:33457/message", { withCredentials: false })
       .withAutomaticReconnect()
       .build();
-      connect
+    connect
       .start()
       .then(() => {
         connect.on("SendAsync", (message) => {
