@@ -23,6 +23,7 @@ export default function Dashboard(props: DashboardProps) {
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
   const [etapas, setEtapas] = useState<Etapa[]>([]);
   const [instrumentals, setInstrumentals] = useState<Instrumental[]>([]);
+  const [atualizar, setAtualizar] = useState<boolean>(true);
   const [connection, setConnection] = useState<null | HubConnection>(null);
 
   useEffect(() => {
@@ -41,44 +42,36 @@ export default function Dashboard(props: DashboardProps) {
     fetchApi();
   }, [etapaAtiva]);
 
-  async function fetchApiInstrumentals() {
-    if (processAtivo != undefined) {
-      await fetch(`http://localhost:33457/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            console.log(result);
-            setInstrumentals(result);
-          }
-        )
-    }
-  }
-
   useEffect(() => {
-    fetchApiInstrumentals();
-  }, [processAtivo])
+    async function fetchApi() {
+      console.log(processAtivo);
+      if (processAtivo != undefined) {
+        await fetch(`http://localhost:33457/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              setInstrumentals(result);
+            }
+          )
+      }
+    }
+    fetchApi();
+  }, [processAtivo, atualizar])
 
   useEffect(() => {
     const connect = new HubConnectionBuilder()
-      .withUrl("http://localhost:33457/message", {withCredentials : false})
+      .withUrl("http://localhost:33457/message", { withCredentials: false })
       .withAutomaticReconnect()
       .build();
-
-    setConnection(connect);
+      connect
+      .start()
+      .then(() => {
+        connect.on("SendAsync", (message) => {
+          setAtualizar(false);
+        });
+      })
+      .catch((error) => console.log(error));
   }, []);
-
-  useEffect(() => {
-    if (connection) {
-      connection
-        .start()
-        .then(() => {
-          connection.on("SendAsync", (message) => {
-            fetchApiInstrumentals();
-          });
-        })
-        .catch((error) => console.log(error));
-    }
-  }, [connection]);
 
   return (
     <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
