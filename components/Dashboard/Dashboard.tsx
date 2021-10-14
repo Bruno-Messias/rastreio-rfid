@@ -1,4 +1,5 @@
 import Etapa from "../../models/Etapa";
+import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 import Instrumental from "../../models/Instrumental";
 import Processo from "../../models/Processo";
 import Workflow from "../../models/Workflow";
@@ -22,11 +23,12 @@ export default function Dashboard(props: DashboardProps) {
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
   const [etapas, setEtapas] = useState<Etapa[]>([]);
   const [instrumentals, setInstrumentals] = useState<Instrumental[]>([]);
+  const [connection, setConnection] = useState<null | HubConnection>(null);
 
   useEffect(() => {
     async function fetchApi() {
       if (etapaAtiva != undefined) {
-        await fetch(`https://localhost:44349/api/Processes/GetByStage/${etapaAtiva.stageId}`)
+        await fetch(`http://localhost:33457/api/Processes/GetByStage/${etapaAtiva.stageId}`)
           .then(res => res.json())
           .then(
             (result) => {
@@ -39,20 +41,44 @@ export default function Dashboard(props: DashboardProps) {
     fetchApi();
   }, [etapaAtiva]);
 
-  useEffect(() => {
-    async function fetchApi() {
-      if (processAtivo != undefined) {
-        await fetch(`https://localhost:44349/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
-          .then(res => res.json())
-          .then(
-            (result) => {
-              setInstrumentals(result);
-            }
-          )
-      }
+  async function fetchApiInstrumentals() {
+    if (processAtivo != undefined) {
+      await fetch(`http://localhost:33457/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            console.log(result);
+            setInstrumentals(result);
+          }
+        )
     }
-    fetchApi();
+  }
+
+  useEffect(() => {
+    fetchApiInstrumentals();
   }, [processAtivo])
+
+  useEffect(() => {
+    const connect = new HubConnectionBuilder()
+      .withUrl("http://localhost:33457/message", {withCredentials : false})
+      .withAutomaticReconnect()
+      .build();
+
+    setConnection(connect);
+  }, []);
+
+  useEffect(() => {
+    if (connection) {
+      connection
+        .start()
+        .then(() => {
+          connection.on("SendAsync", (message) => {
+            fetchApiInstrumentals();
+          });
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [connection]);
 
   return (
     <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
