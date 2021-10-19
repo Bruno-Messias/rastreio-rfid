@@ -9,7 +9,6 @@ import SearchBar from "./SearchBar";
 import EtapaList from "./EtapasList";
 import MyContext from '../../context/myContext'
 import { useEffect, useRef, useState } from "react";
-import Tracking from "../../models/Tracking";
 
 interface DashboardProps {
 }
@@ -23,7 +22,6 @@ export default function Dashboard(props: DashboardProps) {
   const [etapas, setEtapas] = useState<Etapa[]>([]);
   const [instrumentals, setInstrumentals] = useState<Instrumental[]>([]);
   const [atualizar, setAtualizar] = useState<boolean>(true);
-  const [connection, setConnection] = useState<null | HubConnection>(null);
 
   useEffect(() => {
     async function fetchApi() {
@@ -43,8 +41,7 @@ export default function Dashboard(props: DashboardProps) {
 
   useEffect(() => {
     async function fetchApi() {
-      console.log(processAtivo);
-      if (processAtivo != undefined) {
+      if (processAtivo != undefined) {  
         await fetch(`http://localhost:33457/api/Instrumentals/GetByProcess/${processAtivo.processId}`)
           .then(res => res.json())
           .then(
@@ -66,11 +63,11 @@ export default function Dashboard(props: DashboardProps) {
       .start()
       .then(() => {
         connect.on("SendAsync", (message) => {
-          setAtualizar(false);
+          setAtualizar(!atualizar)
         });
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [atualizar]);
 
   return (
     <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
