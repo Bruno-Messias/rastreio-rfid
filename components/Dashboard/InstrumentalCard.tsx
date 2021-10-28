@@ -1,5 +1,10 @@
+import { useContext } from 'react';
+import MyContext from '../../context/myContext';
+import Instrumental from '../../models/Instrumental';
+import ModalPage from './Modal';
 import TagInstrumental from './TagInstrumental'
 interface InstrumentalCardProps {
+    instrumental: Instrumental
     imageUrl: string
     nomeInstrumental: string
     codigo: string
@@ -8,8 +13,18 @@ interface InstrumentalCardProps {
 
 
 export default function InstrumentalCard(props: InstrumentalCardProps) {
+
+    const {instrumentalClicked,setInstrumentalClicked,modalOpen,setModalOpen} = useContext(MyContext);
+
+    function handleClick() {
+        setInstrumentalClicked(props.instrumental);
+        setModalOpen(!modalOpen);
+    }
+
     return (
-        <div className="relative bg-white pt-6 px-4 rounded-3xl w-60 my-4 shadow-2xl h-52 cursor-pointer mx-3">
+        <>
+        <div onClick = {() => handleClick()}
+             className="relative bg-white pt-6 px-4 rounded-3xl w-60 my-4 shadow-2xl h-52 cursor-pointer mx-3">
             <div className=" text-white flex items-center absolute rounded-full py-0.5 px-0.5 shadow-xl bg-blue-400 left-4 -top-6">
                 <img
                     className="w-16 h-16 mx-auto rounded-full"
@@ -30,7 +45,8 @@ export default function InstrumentalCard(props: InstrumentalCardProps) {
                 </div>
             </div>
         </div>
-
+        </>
+        
     )
 }
 

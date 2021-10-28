@@ -5,10 +5,10 @@ import Processo from "../../models/Processo";
 import Workflow from "../../models/Workflow";
 import InstrumentaisList from "./InstrumentaisList";
 import ProcessosList from "./ProcessosList";
-import SearchBar from "./SearchBar";
 import EtapaList from "./EtapasList";
 import MyContext from '../../context/myContext'
 import { useEffect, useRef, useState } from "react";
+import ModalPage from "./Modal";
 
 interface DashboardProps {
 }
@@ -21,7 +21,9 @@ export default function Dashboard(props: DashboardProps) {
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
   const [etapas, setEtapas] = useState<Etapa[]>([]);
   const [instrumentals, setInstrumentals] = useState<Instrumental[]>([]);
+  const [instrumentalClicked, setInstrumentalClicked] = useState<Instrumental>();
   const [atualizar, setAtualizar] = useState<boolean>(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     async function fetchApi() {
@@ -71,11 +73,12 @@ export default function Dashboard(props: DashboardProps) {
 
   return (
     <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
-      <MyContext.Provider value={{ etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos, instrumentals }}>
+      <MyContext.Provider value={{ instrumentalClicked,setInstrumentalClicked,modalOpen,setModalOpen,etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos, instrumentals }}>
         <EtapaList />
         <div className="flex flex-col w-full">
           <ProcessosList processos={processos}>
             <InstrumentaisList instrumentais={instrumentals} />
+            <ModalPage/>
           </ProcessosList>
         </div>
       </MyContext.Provider>

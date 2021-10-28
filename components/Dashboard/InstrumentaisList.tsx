@@ -12,6 +12,7 @@ export default function InstrumentaisList(props: InstrumentaisListProps) {
                 {props.instrumentais.map(instrumental => (
                     <InstrumentalCard
                         key = {instrumental.instrId}
+                        instrumental = {instrumental}
                         imageUrl={instrumental.instrImageUrl}
                         nomeInstrumental={instrumental.instrName}
                         codigo={instrumental.instrCode}
