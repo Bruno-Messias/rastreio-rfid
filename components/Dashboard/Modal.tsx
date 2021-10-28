@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import MyContext from "../../context/myContext";
 
 export default function ModalPage() {
