@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import MyContext from "../../context/myContext";
 import TableHistory from "./Table";
 
 export default function ModalPage() {
-    const {instrumentalClicked,modalOpen,setModalOpen} = useContext(MyContext);
+    
+    const {histories,instrumentalClicked,modalOpen,setModalOpen} = useContext(MyContext);
     return (
       <>
         {modalOpen ? (
@@ -31,7 +32,7 @@ export default function ModalPage() {
                     <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
                       {instrumentalClicked.instrName}
                     </p>
-                    <TableHistory/>
+                    <TableHistory historyList = {histories}/>
                   </div>
                 </div>
               </div>

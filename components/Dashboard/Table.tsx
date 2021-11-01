@@ -1,4 +1,11 @@
-export default function TableHistory() {
+import { ReactChild, ReactFragment, ReactPortal } from "react";
+import History from "../../models/History";
+
+interface TableProps {
+    historyList: any
+}
+
+export default function TableHistory(props: TableProps) {
     return (
         <div className="container h-max overflow-y-hidden">
             <table className="text-left w-full h-96 overflow-y-hidden">
@@ -10,56 +17,21 @@ export default function TableHistory() {
                         <th className="p-4 w-1/4">Hora</th>
                     </tr>
                 </thead>
-                
-                <tbody className="bg-grey-light flex flex-col items-center justify-between h-96 overflow-y-scroll w-full">
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Montagem da Caixa</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">10:41</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Inserir Itens na Autoclave</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">11:25</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Esterelizar</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">12:30</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Expurgo</td>
-                        <td className="p-4 w-1/4">Lavagem Ultrassônica</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">13:11</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Montagem da Caixa</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">10:41</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Inserir Itens na Autoclave</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">11:25</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Preparo</td>
-                        <td className="p-4 w-1/4">Esterelizar</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">12:30</td>
-                    </tr>
-                    <tr className="flex w-full mb-1">
-                        <td className="p-4 w-1/4">Expurgo</td>
-                        <td className="p-4 w-1/4">Lavagem Ultrassônica</td>
-                        <td className="p-4 w-1/4">28/10/2021</td>
-                        <td className="p-4 w-1/4">13:11</td>
-                    </tr>                    
+
+                <tbody className="bg-grey-light flex flex-col items-center justify-start h-96 overflow-y-scroll w-full">
+                    {console.log("reatualizou")}
+                    {props.historyList.map((history: any) => {
+                        return [
+                            <tr key={history.historyID} className="flex w-full mb-1">
+                                <td className="p-4 w-1/4">{history.stageDesc}</td>
+                                <td className="p-4 w-1/4">{history.processDesc}</td>
+                                <td className="p-4 w-1/4">{history.historyDate}</td>
+                                <td className="p-4 w-1/4">{history.historyHour}</td>
+                            </tr>
+                        ]
+
+                    }).reverse()}
+
                 </tbody>
             </table>
         </div>

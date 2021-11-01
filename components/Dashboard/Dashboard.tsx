@@ -26,6 +26,7 @@ export default function Dashboard(props: DashboardProps) {
   const [atualizar, setAtualizar] = useState<boolean>(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [histories, setHistories] = useState<History[]>([]);
+  
 
   useEffect(() => {
     async function fetchApi() {
@@ -73,9 +74,24 @@ export default function Dashboard(props: DashboardProps) {
       .catch((error) => console.log(error));
   }, [atualizar]);
 
+  useEffect(() => {
+    async function fetchApi() {
+      if (instrumentalClicked != undefined && modalOpen) {
+        await fetch(`http://localhost:33457/api/Histories/${instrumentalClicked.instrId}`)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              setHistories(result);
+            }
+          )
+      }
+    }
+    fetchApi();
+  }, [modalOpen]);
+
   return (
     <div className="flex justify-left bg-blue-50 min-h-screen w-screen">
-      <MyContext.Provider value={{ instrumentalClicked,setInstrumentalClicked,modalOpen,setModalOpen,etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos, instrumentals }}>
+      <MyContext.Provider value={{ histories,instrumentalClicked,setInstrumentalClicked,modalOpen,setModalOpen,etapaAtiva, setEtapaAtiva, workflows, setWorkflows, etapas, setEtapas, processAtivo, setProcessAtivo, processos, setProcessos, instrumentals }}>
         <EtapaList />
         <div className="flex flex-col w-full">
           <ProcessosList processos={processos}>
