@@ -35,7 +35,31 @@ export default function TableHistory() {
                         <td className="p-4 w-1/4">Lavagem Ultrassônica</td>
                         <td className="p-4 w-1/4">28/10/2021</td>
                         <td className="p-4 w-1/4">13:11</td>
-                    </tr>                  
+                    </tr>
+                    <tr className="flex w-full mb-1">
+                        <td className="p-4 w-1/4">Preparo</td>
+                        <td className="p-4 w-1/4">Montagem da Caixa</td>
+                        <td className="p-4 w-1/4">28/10/2021</td>
+                        <td className="p-4 w-1/4">10:41</td>
+                    </tr>
+                    <tr className="flex w-full mb-1">
+                        <td className="p-4 w-1/4">Preparo</td>
+                        <td className="p-4 w-1/4">Inserir Itens na Autoclave</td>
+                        <td className="p-4 w-1/4">28/10/2021</td>
+                        <td className="p-4 w-1/4">11:25</td>
+                    </tr>
+                    <tr className="flex w-full mb-1">
+                        <td className="p-4 w-1/4">Preparo</td>
+                        <td className="p-4 w-1/4">Esterelizar</td>
+                        <td className="p-4 w-1/4">28/10/2021</td>
+                        <td className="p-4 w-1/4">12:30</td>
+                    </tr>
+                    <tr className="flex w-full mb-1">
+                        <td className="p-4 w-1/4">Expurgo</td>
+                        <td className="p-4 w-1/4">Lavagem Ultrassônica</td>
+                        <td className="p-4 w-1/4">28/10/2021</td>
+                        <td className="p-4 w-1/4">13:11</td>
+                    </tr>                    
                 </tbody>
             </table>
         </div>

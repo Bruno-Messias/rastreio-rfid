@@ -22,12 +22,12 @@ export default function ModalPage() {
                       className="flex flex-wrap content-center p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                       onClick={() => setModalOpen(false)}
                     >
-                      <span className=" flex flex-wrap content-center bg-transparent text-red-500 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      <span className=" flex flex-wrap content-center bg-transparent text-red-500 h-6 w-6 text-2xl outline-none focus:outline-none">
                         x
                       </span>
                     </button>
                   </div>
-                  <div className="relative p-5 pt-1 pb-1 flex-auto overflow-y-hidden h-full">
+                  <div className="relative p-5 pt-1 pb-5 flex-auto overflow-y-hidden h-full">
                     <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
                       {instrumentalClicked.instrName}
                     </p>

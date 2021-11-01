@@ -9,6 +9,7 @@ import EtapaList from "./EtapasList";
 import MyContext from '../../context/myContext'
 import { useEffect, useRef, useState } from "react";
 import ModalPage from "./Modal";
+import History from "../../models/History";
 
 interface DashboardProps {
 }
@@ -24,6 +25,7 @@ export default function Dashboard(props: DashboardProps) {
   const [instrumentalClicked, setInstrumentalClicked] = useState<Instrumental>();
   const [atualizar, setAtualizar] = useState<boolean>(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [histories, setHistories] = useState<History[]>([]);
 
   useEffect(() => {
     async function fetchApi() {
