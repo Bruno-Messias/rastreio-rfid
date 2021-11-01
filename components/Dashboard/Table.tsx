@@ -19,7 +19,6 @@ export default function TableHistory(props: TableProps) {
                 </thead>
 
                 <tbody className="bg-grey-light flex flex-col items-center justify-start h-96 overflow-y-scroll w-full">
-                    {console.log("reatualizou")}
                     {props.historyList.map((history: any) => {
                         return [
                             <tr key={history.historyID} className="flex w-full mb-1">
